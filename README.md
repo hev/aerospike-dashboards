@@ -1,8 +1,10 @@
 
 ## Dashboard Redesign Notes
+This repo has some notes and code for new dashboards in the Aerospike monitoring stack. 
+
 
 ### Overview
-As an Aerospike oeprator I need an at a glance view that can be used to see across multiple clusters, and see within specific clusters without seeing specifics about namespaces, or sets. 
+As an Aerospike operator I need an at a glance view that can be used to see across multiple clusters, and see within specific clusters without seeing specifics about namespaces, or sets. 
 
 * Include an Aerospike logo.
 * See currently firing critical alerts across all clusters. I don't think there is a way to link from the Alerts List module.
@@ -18,33 +20,11 @@ Notes: This should take the place of the Cluster Overview dashboard.
 As an aerospike customer I need to be able to see namespace and set level information easily.
 
 * ability to filter by cluster and ns
-
 * read / writes 
 * timeseries list of top unique data (bytes) by cluster
 * timeseries list of top unique data (bytes) by namespaces
-
 * MasterObjects per namespace
-
-```json
-{"time":"2023-02-03T11:13:42-08:00","hours_since_start":0,"cluster_name":"null","cluster_generation":1,"cluster_stable":true,"node_count":1,"level":"info","master_objects":2,"unique_data_bytes":178,  "namespaces":{"test":{"master_objects":2,"unique_data_bytes":178}},"errors":[]}
-```
-
-```
-rate(aerospike_namespace_client_read_success{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_read_timeout{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_read_error{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_read_not_found{ cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_read_success{ cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_read_error{ cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_read_timeout{ cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_read_not_found{ cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m])
-```
-
-```
-rate(aerospike_namespace_client_write_success{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_write_timeout{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_write_error{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_success{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_timeout{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_error{cluster_name=~"$cluster", ns=~"$namespace|$^"}[1m])
-```
-
-```
-rate(aerospike_namespace_client_write_success{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_write_timeout{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m])+rate(aerospike_namespace_client_write_error{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_success{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_timeout{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m]) + rate(aerospike_namespace_batch_sub_write_error{cluster_name=~"$cluster",  ns=~"$namespace|$^"}[1m])
-```
-
-
-
 * See how many namespaces you have and how big they are
-
 * Be able to toggle to specific clusters (Variable)
 
 Node Overview - Get a node specific view of details on
