@@ -13,4 +13,4 @@ in February on the grafana dashboards.
 Testing out new features for Aerospike 6.3 by designing some new set dashboards.
 
 1. [Grafana](./grafana/set.json)
-1. [Datadog](./datadog/set.json)
+1. [Datadog](./datadog/)
