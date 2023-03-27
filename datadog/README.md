@@ -20,8 +20,8 @@ prometheus:
   service_endpoints: true
 ```
 
-1. Instead of editing 'aerospike.d/conf.yaml' file, edit the `openmetrics.d/conf.yaml' file.
-1. Add details about the scrape endpoint
+2. Instead of editing 'aerospike.d/conf.yaml' file, edit the `openmetrics.d/conf.yaml' file.
+3. Add details about the scrape endpoint
 ```
 instances:
 
@@ -31,7 +31,7 @@ instances:
     #
     openmetrics_endpoint: http://localhost:9145/metrics
 ```
-1. Add an allow list of metrics to include. THis list here includes new set level config exposed in Aerospike 6.3.
+4. Add an allow list of metrics to include. THis list here includes new set level config exposed in Aerospike 6.3.
 
 ```
     metrics:
