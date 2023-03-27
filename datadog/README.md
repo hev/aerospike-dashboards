@@ -31,7 +31,17 @@ instances:
     #
     openmetrics_endpoint: http://localhost:9145/metrics
 ```
-4. Add an allow list of metrics to include. THis list here includes new set level config exposed in Aerospike 6.3.
+4. Add an allow list of metrics to include, or specificy all through a *. THis list here includes new set level config exposed in Aerospike 6.3.
+
+
+reg-ex approach (this didn't work for me)
+
+```
+ metrics:
+      - *
+```
+
+allow list approach
 
 ```
     metrics:
